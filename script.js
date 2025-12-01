@@ -108,3 +108,23 @@ function unflipCards() {
         secondCard.classList.remove('flip');
         resetBoard();
     }, 1000); 
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+
+// Finally, End Game
+function endGame(win) {
+    clearInterval(timerInterval);
+    gameOverScreen.classList.remove('hidden');
+    if (win) {
+        gameOverText.textContent = `You Won! Moves: ${moves}`;
+    } else {
+        gameOverText.textContent = `Time's Up! Try Again.`;
+    }
+}
+
+// Start the game immediately on load
+initGame();
