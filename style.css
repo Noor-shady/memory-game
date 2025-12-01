@@ -8,3 +8,27 @@
 body {
     height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Nice Purple/Blue Gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 640px;
+}
+
+header {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
