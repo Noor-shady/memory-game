@@ -46,3 +46,15 @@ function initGame() {
     startTimer();
 }
 
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timeElement.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+            // Time ran out
+            endGame(false); 
+        }
+    }, 1000);
+}
+
