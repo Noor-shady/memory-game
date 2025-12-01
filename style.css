@@ -32,3 +32,6 @@ header {
     font-size: 1.2rem;
 }
 
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
