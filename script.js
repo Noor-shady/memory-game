@@ -93,3 +93,12 @@ function disableCards() {
 
     matchesFound++;
     
+    if (matchesFound === emojis.length / 2) {
+        endGame(true);
+    }
+
+    resetBoard();
+}
+
+function unflipCards() {
+    lockBoard = true; 
