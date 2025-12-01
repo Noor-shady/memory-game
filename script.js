@@ -58,3 +58,6 @@ function startTimer() {
     }, 1000);
 }
 
+function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return; 
