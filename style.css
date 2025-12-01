@@ -35,3 +35,13 @@ header {
 .game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 10px;
+    padding: 10px;
+    /* Essential for 3D flip effect */
+    perspective: 1000px; 
+}
+
+/* Card Styles */
+.card {
+    background-color: transparent;
+    height: 100px;
