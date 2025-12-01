@@ -9,3 +9,9 @@ const emojis = ['🍕', '🍕', '🚀', '🚀', '🐱', '🐱', '🌵', '🌵', 
 let cards = []; 
 let hasFlippedCard = false;
 let lockBoard = false; 
+let firstCard, secondCard;
+let moves = 0;
+let matchesFound = 0;
+let timeLeft = 60; 
+let timerInterval;
+
