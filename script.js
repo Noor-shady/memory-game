@@ -80,3 +80,16 @@ function incrementMoves() {
     movesElement.textContent = moves;
 }
 
+function checkForMatch() {
+    let isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+
+    isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+    // Matches found: remove event listeners so they can't be clicked again
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    matchesFound++;
+    
