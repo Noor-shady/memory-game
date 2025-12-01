@@ -26,3 +26,23 @@ function shuffle(array) {
 // Initialize Game
 function initGame() {
     const shuffledEmojis = shuffle(emojis);
+
+    shuffledEmojis.forEach(emoji => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        // Store value to check match later
+        card.dataset.emoji = emoji; 
+
+        card.innerHTML = `
+            <div class="front-face">${emoji}</div>
+            <div class="back-face">?</div>
+        `;
+        
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+        cards.push(card);
+    });
+
+    startTimer();
+}
+
