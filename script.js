@@ -70,3 +70,13 @@ function flipCard() {
         return;
     }
 
+    secondCard = this;
+    incrementMoves();
+    checkForMatch();
+}
+
+function incrementMoves() {
+    moves++;
+    movesElement.textContent = moves;
+}
+
