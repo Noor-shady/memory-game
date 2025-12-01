@@ -1,4 +1,3 @@
-```markdown
 # Memory Matching Game
 
 A classic card matching game built with vanilla JavaScript, HTML5, and CSS3. The game features a responsive grid, 3D card flip animations, a countdown timer, and a move counter to track player performance.
