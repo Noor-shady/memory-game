@@ -7,3 +7,5 @@ const gameOverText = document.getElementById('game-over-text');
 const emojis = ['🍕', '🍕', '🚀', '🚀', '🐱', '🐱', '🌵', '🌵', '🎸', '🎸', '🍦', '🍦', '💎', '💎', '🎈', '🎈'];
 
 let cards = []; 
+let hasFlippedCard = false;
+let lockBoard = false; 
