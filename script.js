@@ -1,5 +1,6 @@
 class MemoryGame {
     constructor() {
+        // DOM Elements
         this.gameBoard = document.getElementById('game-board');
         this.movesElement = document.getElementById('moves');
         this.timeElement = document.getElementById('time');
@@ -49,3 +50,9 @@ class MemoryGame {
             card.classList.add('card');
             card.dataset.emoji = emoji;
             card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `Card ${index + 1}`);
+
+            card.innerHTML = `
+                <div class="front-face">${emoji}</div>
+                <div class="back-face">?</div>
+            `;
