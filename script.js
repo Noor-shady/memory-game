@@ -42,3 +42,10 @@ class MemoryGame {
 
     initGame() {
         this.gameBoard.innerHTML = '';
+        const shuffledEmojis = this.shuffle([...this.emojis]);
+
+        shuffledEmojis.forEach((emoji, index) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.dataset.emoji = emoji;
+            card.setAttribute('tabindex', '0');
