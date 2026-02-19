@@ -56,3 +56,60 @@ class MemoryGame {
                 <div class="front-face">${emoji}</div>
                 <div class="back-face">?</div>
             `;
+            
+            card.addEventListener('click', () => this.flipCard(card));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.flipCard(card);
+                }
+            });
+
+            this.gameBoard.appendChild(card);
+        });
+    }
+
+    startTimer() {
+        this.gameStarted = true;
+        this.timerInterval = setInterval(() => {
+            this.timeLeft--;
+            this.timeElement.textContent = this.timeLeft;
+
+            if (this.timeLeft <= 0) {
+                this.endGame(false);
+            }
+        }, 1000);
+    }
+
+    flipCard(card) {
+        // Start timer on very first interaction
+        if (!this.gameStarted) this.startTimer();
+
+        if (this.lockBoard) return;
+        if (card === this.firstCard) return; 
+        if (card.classList.contains('matched')) return;
+
+        card.classList.add('flip');
+
+        if (!this.hasFlippedCard) {
+            this.hasFlippedCard = true;
+            this.firstCard = card;
+            return;
+        }
+
+        this.secondCard = card;
+        this.incrementMoves();
+        this.checkForMatch();
+    }
+
+    incrementMoves() {
+        this.moves++;
+        this.movesElement.textContent = this.moves;
+    }
+
+    checkForMatch() {
+        const isMatch = this.firstCard.dataset.emoji === this.secondCard.dataset.emoji;
+        isMatch ? this.disableCards() : this.unflipCards();
+    }
+
+    disableCards() {
