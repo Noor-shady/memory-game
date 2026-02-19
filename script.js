@@ -113,3 +113,42 @@ class MemoryGame {
     }
 
     disableCards() {
+        this.firstCard.classList.add('matched');
+        this.secondCard.classList.add('matched');
+
+        this.matchesFound++;
+        
+        if (this.matchesFound === this.emojis.length / 2) {
+            this.endGame(true);
+        }
+
+        this.resetBoard();
+    }
+
+    unflipCards() {
+        this.lockBoard = true; 
+
+        setTimeout(() => {
+            this.firstCard.classList.remove('flip');
+            this.secondCard.classList.remove('flip');
+            this.resetBoard();
+        }, 1000); 
+    }
+
+    resetBoard() {
+        [this.hasFlippedCard, this.lockBoard] = [false, false];
+        [this.firstCard, this.secondCard] = [null, null];
+    }
+
+    endGame(win) {
+        clearInterval(this.timerInterval);
+        this.gameOverScreen.classList.remove('hidden');
+        
+        if (win) {
+            this.gameOverText.textContent = `You Won! Moves: ${this.moves}`;
+        } else {
+            this.gameOverText.textContent = `Time's Up! Try Again.`;
+        }
+    }
+
+    resetGame() {
