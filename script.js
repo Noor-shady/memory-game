@@ -152,3 +152,8 @@ class MemoryGame {
     }
 
     resetGame() {
+        clearInterval(this.timerInterval);
+        this.gameStarted = false;
+        this.moves = 0;
+        this.matchesFound = 0;
+        this.timeLeft = this.TOTAL_TIME;
