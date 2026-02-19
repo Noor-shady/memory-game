@@ -162,3 +162,12 @@ class MemoryGame {
         this.timeElement.textContent = this.timeLeft;
         this.gameOverScreen.classList.add('hidden');
         this.resetBoard();
+        
+        this.initGame();
+    }
+}
+
+// Instantiate the game when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    new MemoryGame();
+});
