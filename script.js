@@ -157,3 +157,8 @@ class MemoryGame {
         this.moves = 0;
         this.matchesFound = 0;
         this.timeLeft = this.TOTAL_TIME;
+        
+        this.movesElement.textContent = this.moves;
+        this.timeElement.textContent = this.timeLeft;
+        this.gameOverScreen.classList.add('hidden');
+        this.resetBoard();
